@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_translate_clone/features/splash/presentation/views/splash_view.dart';
+import 'package:google_translate_clone/core/utils/app_router.dart';
 
 void main() {
   runApp(const GoogleTranslateClone());
@@ -10,9 +10,9 @@ class GoogleTranslateClone extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      home: SplashView(),
+      routerConfig: AppRouter.router,
     );
   }
 }
