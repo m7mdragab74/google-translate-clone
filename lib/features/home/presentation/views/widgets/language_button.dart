@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_translate_clone/constants.dart';
+import 'package:google_translate_clone/core/utils/styles.dart';
 
 class LanguageButton extends StatelessWidget {
   const LanguageButton({
@@ -21,7 +23,7 @@ class LanguageButton extends StatelessWidget {
         width: 140,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: Colors.blueAccent.withOpacity(0.9),
+          color: kPrimaryColor,
           boxShadow: [
             BoxShadow(
               color: Colors.blue.shade700.withOpacity(0.3),
@@ -33,11 +35,7 @@ class LanguageButton extends StatelessWidget {
         child: Center(
           child: Text(
             language,
-            style: const TextStyle(
-              fontSize: 16,
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
-            ),
+            style: Styles.textStyle32.copyWith(fontSize: 16),
           ),
         ),
       ),

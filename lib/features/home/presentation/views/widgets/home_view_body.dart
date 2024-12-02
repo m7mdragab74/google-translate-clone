@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_translate_clone/core/utils/styles.dart';
+import 'package:google_translate_clone/features/home/presentation/views/widgets/language_selection_section.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -13,6 +14,7 @@ class HomeViewBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const LanguageSelectionSection(),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
