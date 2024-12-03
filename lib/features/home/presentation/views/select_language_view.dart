@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_translate_clone/features/home/presentation/views/widgets/select_language_app_bar.dart';
 import 'package:google_translate_clone/features/home/presentation/views/widgets/select_language_view_body.dart';
 
 class SelectLanguageView extends StatelessWidget {
@@ -7,6 +8,7 @@ class SelectLanguageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      appBar: SelectLanguageAppBar(),
       body: SelectLanguageViewBody(),
     );
   }
