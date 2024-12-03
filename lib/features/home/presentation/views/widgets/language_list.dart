@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:google_translate_clone/features/home/presentation/view_model/language_model.dart';
+import 'package:google_translate_clone/features/home/data/view_model/language_model.dart';
 
 class LanguageList extends StatelessWidget {
   final List<LanguageModel> languages;
