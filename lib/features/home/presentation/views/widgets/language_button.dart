@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_translate_clone/constants.dart';
 import 'package:google_translate_clone/core/utils/styles.dart';
+import 'package:google_translate_clone/features/home/data/view_model/language_model.dart';
+import 'package:google_translate_clone/features/home/presentation/views/select_language_view.dart';
 
 class LanguageButton extends StatelessWidget {
   const LanguageButton({
@@ -12,12 +14,18 @@ class LanguageButton extends StatelessWidget {
 
   final String language;
   final BuildContext context;
-  final void Function() callback;
+  final void Function(LanguageModel) callback;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => SelectLanguageView(callback: callback),
+          ),
+        );
+      },
       child: Container(
         height: 50,
         width: 140,

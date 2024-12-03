@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:google_translate_clone/constants.dart';
+import 'package:google_translate_clone/core/utils/styles.dart';
 import 'package:google_translate_clone/features/home/data/view_model/language_model.dart';
 
 class LanguageList extends StatelessWidget {
@@ -43,10 +45,10 @@ class LanguageList extends StatelessWidget {
                     ),
                     subtitle: Text(
                       languages[index].code,
-                      style: const TextStyle(fontSize: 16, color: Colors.grey),
+                      style: Styles.textStyle20.copyWith(fontSize: 16),
                     ),
                     trailing: const Icon(Icons.arrow_forward_ios,
-                        size: 16, color: Colors.blue),
+                        size: 16, color: kPrimaryColor),
                     onTap: () => onLanguageTap(languages[index]),
                   ),
                 ),

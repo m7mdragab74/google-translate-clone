@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_translate_clone/constants.dart';
 import 'package:google_translate_clone/core/utils/styles.dart';
+import 'package:google_translate_clone/features/home/presentation/controller/translate_cubit.dart';
 
 class TextInputSection extends StatelessWidget {
   const TextInputSection({super.key});
@@ -24,9 +27,13 @@ class TextInputSection extends StatelessWidget {
         children: [
           Expanded(
             child: TextField(
+              controller: context.read<TranslateCubit>().textController,
               maxLines: 5,
               minLines: 1,
-              onSubmitted: (value) {},
+              onSubmitted: (value) {
+                BlocProvider.of<TranslateCubit>(context)
+                    .translate("en", "ar", value);
+              },
               decoration: InputDecoration(
                 hintText: "Enter text",
                 hintStyle: Styles.textStyle20.copyWith(
@@ -37,7 +44,14 @@ class TextInputSection extends StatelessWidget {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () async {
+              ClipboardData? clipboardData =
+                  await Clipboard.getData('text/plain');
+              if (clipboardData != null) {
+                context.read<TranslateCubit>().textController.text =
+                    clipboardData.text!;
+              }
+            },
             icon: const Icon(
               Icons.paste,
               color: kPrimaryColor,
